@@ -1,76 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link href="styles/style.css" rel="stylesheet">
-  <link href="styles/normalize.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&display=swap"
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&display=swap"
         rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
-  <header class="header">
-    <div class="header__container">
-      <a class="header__logo logo" href="">
-        <img alt="logo" class="logo__icon" src="pictures/logo.svg">
-        <span class="logo__text"></span>
-      </a>
+    <header class="header">
+        <div class="header__container">
+            <a class="header__logo logo" href="">
+                <img alt="logo" class="logo__icon" src="pictures/logo.svg">
+                <span class="logo__text"></span>
+            </a>
 
-      <nav class="header__nav nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link">Favorite coffee</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link">About</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link">Mobile app</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link">Contact us</a>
-          </li>
-        </ul>
-      </nav>
+            <nav class="header__nav nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link">Favorite coffee</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link">Mobile app</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link">Contact us</a>
+                    </li>
+                </ul>
+            </nav>
 
-      <div class="header__coffee-menu coffee-menu">
-        <div class="coffee-menu__item">
-          <a class="coffee-menu__link" href="">
-            <span class="menu__text">Menu</span>
-            <img alt="coffee-cup-icon" class="menu__icon" src="pictures/coffee-cup.svg">
-          </a>
+            <div class="header__coffee-menu coffee-menu">
+                <div class="coffee-menu__item">
+                    <a class="coffee-menu__link" href="">
+                        <span class="menu__text">Menu</span>
+                        <img alt="coffee-cup-icon" class="menu__icon" src="pictures/coffee-cup.svg">
+                    </a>
 
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="page__main-block main-block">
+            <div class="main-block__background">
+                <div class="main-block__offer offer">
+                    <h1 class="main-block__title offer-title">
+                        <span class="offer-title_italic _italic-beige">Enjoy</span> premium coffee at our charming cafe
+                    </h1>
+                    <p class="main-block__text">
+                        With its inviting atmosphere and delicious coffee options, the Coffee House Resource
+                        is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy
+                        their
+                        favorite
+                        beverage.
+                    </p>
+                    <button class="offer__button"><span class="button__text">Menu</span></button>
+                </div>
+            </div>
         </div>
 
-      </div>
-    </div>
-  </header>
+        <div class="page__coffee-slider coffee-slider-box">
+            <h2 class="coffee-slider__title">Choose your <span class="_italic-beige">favorite</span> coffee</h2>
+            <div class="coffee-slider">
+                <button class="coffee-slider__btn-prev btn-prev button-arrow">
+                    <img alt="arrow left" class="" src="pictures/arrow-left.svg">
+                </button>
 
-  <main class="page">
-    <div class="page__main-block main-block">
-      <div class="main-block__background">
-        <div class="main-block__offer offer">
-          <h1 class="main-block__title offer-title">
-            <span class="offer-title_italic _italic-beige">Enjoy</span> premium coffee at our charming cafe
-          </h1>
-          <p class="main-block__text">
-            With its inviting atmosphere and delicious coffee options, the Coffee House Resource
-            is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their
-            favorite
-            beverage.
-          </p>
-          <button class="offer__button"><span class="button__text">Menu</span></button>
+                <div class="coffee-slider__coffee-picture coffee-pictures">
+                    <div class="coffee-card">
+                        <img alt="coffee picture 1" class="coffee-picture" src="pictures/coffee-slider-1.png">
+                        <div class="coffee-card__info">
+                            <h4 class="coffee-card__title">S’mores Frappuccino</h4>
+                            <p class="coffee-card__description">
+                                This new drink takes an espresso and mixes it with brown sugar
+                                and cinnamon before being topped with oat milk.
+                            </p>
+                            <span class="coffee-card__cost">$5.50</span>
+                        </div>
+                    </div>
+
+                    <div class="coffee-card">
+                        <img alt="coffee picture 2" class="coffee-picture" src="pictures/coffee-slider-2.png">
+
+                        <div class="coffee-card__info">
+                            <h4 class="coffee-card__title">Caramel Macchiato</h4>
+                            <p class="coffee-card__description">
+                                Fragrant and unique classic espresso with rich caramel-peanut syrup, with cream under
+                                whipped thick foam.
+                            </p>
+                            <span class="coffee-card__cost">$5.00</span>
+                        </div>
+                    </div>
+                    <div class="coffee-card">
+                        <img alt="coffee picture 3" class="coffee-picture" src="pictures/coffee-slider-3.png">
+
+                        <div class="coffee-card__info">
+                            <h4 class="coffee-card__title">Ice coffee</h4>
+                            <p class="coffee-card__description">
+                                A popular summer drink that tones and invigorates. Prepared from coffee, milk and ice.
+                            </p>
+                            <span class="coffee-card__cost">$4.50</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="coffee-slider__btn-next btn-next button-arrow">
+                    <img alt="arrow right" class="" src="pictures/arrow-right.svg">
+                </button>
+            </div>
+            <div class="coffee-slider__controls">
+                <div class="controls__item controls__item-active"></div>
+                <div class="controls__item"></div>
+                <div class="controls__item"></div>
+            </div>
+
         </div>
-      </div>
-    </div>
-
-    <div class="page__slider slider">
-      <h2 class="slider__title">Choose your <span class="_italic-beige">favorite</span> coffee</h2>
-    </div>
-  </main>
+    </main>
 </div>
+
+<script src="scripts/script.js"></script>
 </body>
 </html>

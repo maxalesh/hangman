@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
     <link href="styles/style.css" rel="stylesheet">
     <link href="styles/normalize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&display=swap"
         rel="stylesheet">
+    <link href="pictures/logo.svg" rel="icon" type="image/svg+xml">
 </head>
 <body>
 <div class="wrapper">
@@ -23,16 +24,16 @@
             <nav class="header__nav nav">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a class="nav__link">Favorite coffee</a>
+                        <a class="nav__link" href="#favorite">Favorite coffee</a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link">About</a>
+                        <a class="nav__link" href="#about">About</a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link">Mobile app</a>
+                        <a class="nav__link" href="#mobile-app">Mobile app</a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link">Contact us</a>
+                        <a class="nav__link" href="#contact">Contact us</a>
                     </li>
                 </ul>
             </nav>
@@ -69,7 +70,7 @@
             </div>
         </div>
 
-        <div class="page__coffee-slider coffee-slider-box">
+        <div class="page__coffee-slider coffee-slider-box" id="favorite">
             <h2 class="coffee-slider__title">Choose your <span class="_italic-beige">favorite</span> coffee</h2>
             <div class="coffee-slider">
                 <button class="coffee-slider__btn-prev btn-prev button-arrow">
@@ -126,7 +127,7 @@
             </div>
         </div>
 
-        <div class="about">
+        <div class="about" id="about">
             <div class="about__content">
                 <h2 class="about__title">
                     Resource is <span class="_italic-beige">the perfect and cozy place</span> where you can enjoy a
@@ -146,7 +147,7 @@
             </div>
         </div>
 
-        <div class="mobile-app">
+        <div class="mobile-app" id="mobile-app">
             <div class="mobile-app__offer">
                 <h2 class="mobile-app__title"><span class="_italic-beige">
                     Download</span> our apps<br>to start ordering
@@ -179,7 +180,7 @@
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer" id="contact">
             <div class="footer-container">
                 <div class="footer__left-block">
                     <div class="footer__text">

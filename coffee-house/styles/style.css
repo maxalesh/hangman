@@ -392,6 +392,15 @@ body {
     background-color: inherit;
 }
 
+.socials__btn:hover .svg-path {
+    stroke: #403F3D;
+}
+
+.socials__btn:hover {
+    background-color: #E1D4C9;
+    cursor: pointer;
+}
+
 .socials__logo {
     width: 24px;
     height: 24px;

@@ -1,5 +1,4 @@
 html {
-    width: 1440px;
     background-color: #E1D4C9;
 }
 
@@ -283,8 +282,69 @@ body {
 }
 
 /*MOBILE APP*/
+.mobile-app {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.mobile-app__offer {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
 
 .mobile-app__title {
-    font-size: 60px;
+    font-size: 59.5px;
     line-height: 1.25;
+}
+
+.mobile-app__subtitle {
+    line-height: 1.5;
+}
+
+.mobile-app__download {
+    display: flex;
+    gap: 20px;
+}
+
+
+.google-play__icon {
+    /*background-color: inherit;*/
+}
+
+.appstore__btn,
+.google-play__btn {
+    display: flex;
+    width: 200px;
+    padding: 12px 20px;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #665F55;
+    border-radius: 100px;
+    background-color: inherit;
+}
+
+.appstore__text,
+.google-play__text {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.appstore-title,
+.google-play__title {
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.appstore__content,
+.google-play__content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.google-play__text {
+    font-size: 10px;
+    line-height: 1.4;
 }

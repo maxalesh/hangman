@@ -286,6 +286,7 @@ body {
     display: flex;
     align-items: center;
     gap: 100px;
+    margin-bottom: 100px;
 }
 
 .mobile-app__offer {
@@ -348,3 +349,84 @@ body {
     font-size: 10px;
     line-height: 1.4;
 }
+
+/*FOOTER*/
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    margin-bottom: 45px;
+}
+
+.footer-container {
+    display: flex;
+    max-width: 1360px;
+    padding: 95px;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    align-self: stretch;
+    border-radius: 40px;
+    background-color: #665F55;
+}
+
+.footer__title {
+    font-size: 60px;
+    line-height: 1.25;
+    color: #E1D4C9;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 12px;
+}
+
+.socials__btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 1px solid #C1B6AD;
+    background-color: inherit;
+}
+
+.socials__logo {
+    width: 24px;
+    height: 24px;
+}
+
+.footer__left-block,
+.footer__right-block {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 50%;
+}
+
+.contacts {
+    color: #E1D4C9;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contacts__title {
+    font-size: 24px;
+    line-height: 1.25;
+}
+
+.contacts__info {
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contacts__item {
+    display: flex;
+    gap: 8px;
+}
+
+

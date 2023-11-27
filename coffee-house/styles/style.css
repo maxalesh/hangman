@@ -1,5 +1,10 @@
 html {
     background-color: #E1D4C9;
+    scroll-behavior: smooth;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 body {
@@ -171,6 +176,15 @@ body {
     background-color: unset;
 }
 
+.button-arrow:hover path {
+    stroke: #E1D4C9;
+}
+
+.button-arrow:hover {
+    background-color: #665F55;
+    border-color: #665F55;
+}
+
 .btn-prev {
 
 }
@@ -309,6 +323,10 @@ body {
     gap: 20px;
 }
 
+.mobile-app__appstore:hover,
+.mobile-app__google-play:hover {
+    cursor: pointer;
+}
 
 .google-play__icon {
     /*background-color: inherit;*/
@@ -438,4 +456,11 @@ body {
     gap: 8px;
 }
 
+.contacts__address:hover {
+    text-decoration: underline;
+}
+
+.contact-icon {
+    margin-right: 8px;
+}
 

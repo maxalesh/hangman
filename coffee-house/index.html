@@ -16,7 +16,7 @@
 <div class="wrapper">
     <header class="header">
         <div class="header__container">
-            <a class="header__logo logo" href="">
+            <a class="header__logo logo" href="index.html">
                 <img alt="logo" class="logo__icon" src="pictures/logo.svg">
                 <span class="logo__text"></span>
             </a>
@@ -40,7 +40,7 @@
 
             <div class="header__coffee-menu coffee-menu">
                 <div class="coffee-menu__item">
-                    <a class="coffee-menu__link" href="">
+                    <a class="coffee-menu__link" href="menu.html">
                         <span class="menu__text">Menu</span>
                         <img alt="coffee-cup-icon" class="menu__icon" src="pictures/coffee-cup.svg">
                     </a>
@@ -74,7 +74,12 @@
             <h2 class="coffee-slider__title">Choose your <span class="_italic-beige">favorite</span> coffee</h2>
             <div class="coffee-slider">
                 <button class="coffee-slider__btn-prev btn-prev button-arrow">
-                    <img alt="arrow left" class="" src="pictures/arrow-left.svg">
+                    <!--                    <img alt="arrow left" class="" src="pictures/arrow-left.svg">-->
+                    <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke="#403F3D" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+
                 </button>
 
                 <div class="coffee-slider__coffee-picture coffee-pictures">
@@ -117,7 +122,12 @@
 
 
                 <button class="coffee-slider__btn-next btn-next button-arrow">
-                    <img alt="arrow right" class="" src="pictures/arrow-right.svg">
+                    <!--                    <img alt="arrow right" class="" src="pictures/arrow-right.svg">-->
+                    <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18" stroke="#403F3D" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+
                 </button>
             </div>
             <div class="coffee-slider__controls">
@@ -233,18 +243,28 @@
                         <h5 class="contacts__title">Contact us</h5>
                         <div class="contacts__info">
                             <div class="contacts__address contacts__item">
-                                <img alt="address icon" class="address__icon" src="pictures/pin-alt.svg">
-                                <span class="address__text">8558 Green Rd.,  LA</span>
+
+                                <a class="address__text" href="https://maps.app.goo.gl/cb2N8uJmRzWKRChz5"
+                                   target="_blank">
+                                    <img alt="address icon" class="address__icon contact-icon"
+                                         src="pictures/pin-alt.svg">8558 Green Rd., LA
+                                </a>
                             </div>
 
                             <div class="contacts__phone contacts__item">
-                                <img alt="phone icon" class="phone__icon" src="pictures/phone.svg">
-                                <span class="phone__number">+1 (603) 555-0123</span>
+
+                                <a class="phone__number" href="tel:+16035550123">
+                                    <img alt="phone icon" class="phone__icon contact-icon" src="pictures/phone.svg">
+                                    +1 (603) 555-0123
+                                </a>
                             </div>
 
                             <div class="contacts__clock contacts__item">
-                                <img alt="clock icon" class="clock__icon" src="pictures/clock.svg">
-                                <span class="clock__time-zone">Mon-Sat: 9:00 AM – 23:00 PM</span>
+
+                                <span class="clock__time-zone">
+                                    <img alt="clock icon" class="clock__icon contact-icon" src="pictures/clock.svg">
+                                    Mon-Sat: 9:00 AM – 23:00 PM
+                                </span>
                             </div>
                         </div>
                     </div>

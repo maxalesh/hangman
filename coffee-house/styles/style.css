@@ -154,7 +154,7 @@ body {
 /*SLIDER*/
 
 .coffee-slider-box {
-    margin: 100px 0 40px 0;
+    margin: 100px 0;
 }
 
 .coffee-slider__title {
@@ -238,4 +238,53 @@ body {
 .controls__item-active {
     border: 2px solid #665F55;
     color: #665F55;
+}
+
+/*ABOUT*/
+.about {
+    margin-bottom: 100px;
+}
+
+.about__content {
+    margin-bottom: 40px;
+}
+
+.about__title {
+    font-size: 59.5px;
+    line-height: 1.25;
+}
+
+.gallery {
+    display: flex;
+    gap: 40px;
+}
+
+.gallery__column-1,
+.gallery__column-2 {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+
+.gallery__photo {
+    border-radius: 20px;
+}
+
+.gallery__photo-1,
+.gallery__photo-4 {
+    width: 660px;
+    height: 590px;
+}
+
+.gallery__photo-2,
+.gallery__photo-3 {
+    width: 660px;
+    height: 430px;
+}
+
+/*MOBILE APP*/
+
+.mobile-app__title {
+    font-size: 60px;
+    line-height: 1.25;
 }

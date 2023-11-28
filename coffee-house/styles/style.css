@@ -38,13 +38,10 @@ a:hover::after {
     opacity: 1;
 }
 
-/*a:hover img {*/
+.coffee-menu__link_current::after {
+    opacity: 1;
+}
 
-/*}*/
-
-/*a img:hover {*/
-/*    text-decoration: underline;*/
-/*}*/
 
 .wrapper {
     max-width: 1360px;
@@ -144,6 +141,9 @@ a:hover::after {
     margin: 100px;
 }
 
+.offer__menu-link::after {
+    display: none;
+}
 
 .offer-title {
     font-size: 72px;
@@ -525,10 +525,6 @@ a:hover::after {
     display: flex;
     gap: 8px;
 }
-
-/*.contacts__address:hover {*/
-/*    text-decoration: underline;*/
-/*}*/
 
 
 .contacts__item a:hover::after {

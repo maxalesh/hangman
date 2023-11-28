@@ -6,6 +6,7 @@ const btnNext = document.querySelector('.btn-next');
 const coffeeCount = coffeeImages.length;
 const controlsArray = Array.from(document.querySelectorAll('.controls__item'));
 
+
 btnPrev.addEventListener('click', () => swipeSlide('prev'));
 btnNext.addEventListener('click', () => swipeSlide('next'));
 
@@ -36,7 +37,4 @@ function swipeSlide(direction) {
         }
     }
 }
-
-
-
 

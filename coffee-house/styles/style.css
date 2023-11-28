@@ -400,6 +400,19 @@ a:hover::after {
     background-color: inherit;
 }
 
+.google-play__btn:hover path,
+.appstore__btn:hover path {
+    fill: #E1D4C9;
+}
+
+.google-play__btn:hover,
+.appstore__btn:hover {
+    color: #E1D4C9;
+    border-color: #665F55;
+    background-color: #665F55;
+}
+
+
 .appstore__text,
 .google-play__text {
     font-size: 10px;

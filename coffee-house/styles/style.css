@@ -29,6 +29,10 @@ a::after {
     background-color: #403F3D;
 }
 
+.header__logo::after {
+    content: '';
+    display: none;
+}
 
 a:hover::after {
     opacity: 1;

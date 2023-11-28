@@ -8,7 +8,7 @@ button:hover {
 }
 
 body {
-    font-family: Inter;
+    font-family: Inter, serif;
     font-weight: 600;
 }
 
@@ -104,30 +104,21 @@ a:hover::after {
     gap: 8px;
 }
 
-/*MAINBLOCK*/
-
+/*MAIN BLOCK*/
 
 .main-block {
-    /*width: 100%;*/
-    /*height: 1000px;*/
-
-
     display: flex;
-    /*padding: 0px 40px;*/
     flex-direction: column;
     align-items: center;
     align-self: stretch;
-
-
 }
 
 .main-block__background {
     max-width: 1360px;
     height: 644px;
     border-radius: 40px;
-    background: url("../images/img-hero.jpg"), lightgray 50% / cover no-repeat;
     width: 100%;
-    background-position: center;
+    background: lightgray url("../images/img-hero.jpg") no-repeat center;
 }
 
 .main-block__offer {
@@ -198,7 +189,7 @@ a:hover::after {
 }
 
 .button__text {
-    font-family: Inter;
+    font-family: Inter, serif;
     font-size: 16px;
     line-height: 1.5;
 
@@ -239,14 +230,6 @@ a:hover::after {
 .button-arrow:hover {
     background-color: #665F55;
     border-color: #665F55;
-}
-
-.btn-prev {
-
-}
-
-.btn-next {
-
 }
 
 
@@ -384,10 +367,6 @@ a:hover::after {
     cursor: pointer;
 }
 
-.google-play__icon {
-    /*background-color: inherit;*/
-}
-
 .appstore__btn,
 .google-play__btn {
     display: flex;
@@ -412,7 +391,6 @@ a:hover::after {
     border-color: #665F55;
     background-color: #665F55;
 }
-
 
 .appstore__text,
 .google-play__text {

@@ -1,0 +1,80 @@
+/*.menu-page {*/
+
+/*}*/
+
+.menu-page__title {
+    font-size: 60px;
+    line-height: 1.25;
+    color: #403F3D;
+    width: fit-content;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.button__icon {
+    border-radius: 100px;
+    background-color: #C1B6AD;
+    display: flex;
+    padding: 3px 7px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    line-height: 1.5;
+    width: 30px;
+    height: 30px;
+}
+
+.tabs__button {
+    border-radius: 100px;
+    display: flex;
+    gap: 8px;
+    padding: 8px 16px 8px 8px;
+    align-items: center;
+    background: inherit;
+    border: 1px solid #C1B6AD;
+
+}
+
+.button__name {
+    color: #403F3D;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.tabs {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto 40px;
+    gap: 16px;
+}
+
+.menu__coffee {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.menu__tea {
+    display: none;
+}
+
+.menu__dessert {
+    display: none;
+}
+
+.menu__cup-card {
+    display: flex;
+    flex-direction: column;
+    width: 308px;
+    height: 506px;
+    border-radius: 40px;
+    border: 1px solid #C1B6AD;
+
+}
+
+.menu__cup-card img {
+    width: 308px;
+    height: 310px;
+    border-radius: 40px;
+}

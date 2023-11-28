@@ -15,7 +15,7 @@ function showNewImages(currentInd = 0) {
     coffeeImages.forEach((slide, index) => {
         if (index === coffeeInd) {
             slide.style.display = 'block';
-            controlsArray[index].classList.add('controls__item-active')
+            controlsArray[index].classList.add('controls__item-active');
         } else {
             slide.style.display = 'none';
             controlsArray[index].classList.remove('controls__item-active')

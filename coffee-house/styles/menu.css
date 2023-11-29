@@ -48,6 +48,15 @@
     line-height: 1.5;
 }
 
+.tabs__button.active {
+    background: #665F55;
+    border-color: #665F55;
+}
+
+.active span {
+    color: #E1D4C9;
+}
+
 .tabs {
     display: flex;
     width: fit-content;
@@ -61,7 +70,9 @@
     margin-bottom: 100px;
 }
 
-.menu__coffee {
+.menu__coffee,
+.menu__tea,
+.menu__dessert {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;

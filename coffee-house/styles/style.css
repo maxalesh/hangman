@@ -386,17 +386,17 @@ a:hover::after {
     height: 430px;
 }
 
-/*.gallery__photo-1,*/
-/*.gallery__photo-4 {*/
-/*    width: 660px;*/
-/*    height: 590px;*/
-/*}*/
+.gallery__photo-1,
+.gallery__photo-4 {
+    width: 660px;
+    height: 590px;
+}
 
-/*.gallery__photo-2,*/
-/*.gallery__photo-3 {*/
-/*    width: 660px;*/
-/*    height: 430px;*/
-/*}*/
+.gallery__photo-2,
+.gallery__photo-3 {
+    width: 660px;
+    height: 430px;
+}
 
 /*MOBILE APP*/
 .mobile-app {

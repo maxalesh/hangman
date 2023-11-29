@@ -147,6 +147,8 @@
     overflow: hidden;
     object-fit: cover;
     border-radius: 20px;
+    width: 310px;
+    height: 310px;
 }
 
 .card__image img {
@@ -155,6 +157,8 @@
     border-radius: 20px;
     object-fit: cover;
     scale: 1.1;
+    width: 340px;
+    height: 340px;
 }
 
 .card__image img:hover {

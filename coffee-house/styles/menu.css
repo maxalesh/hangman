@@ -101,15 +101,6 @@
     }
 }
 
-@keyframes hideMenu {
-    from {
-        display: flex;
-    }
-    to {
-        display: none;
-    }
-}
-
 .menu__tea {
     display: none;
 }

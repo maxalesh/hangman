@@ -254,6 +254,20 @@ a:hover::after {
     display: none;
 }
 
+.coffee-card {
+    animation: switch-coffee 350ms ease;
+}
+
+@keyframes switch-coffee {
+    from {
+        /*transform: translateX(0px);*/
+        opacity: 0;
+    }
+    to {
+        /*transform: translateX(-450px);*/
+        opacity: 1;
+    }
+}
 
 .coffee-picture {
     margin: 0 auto;
@@ -404,7 +418,9 @@ a:hover::after {
     color: #E1D4C9;
     border-color: #665F55;
     background-color: #665F55;
+    transition: 500ms;
 }
+
 
 .appstore__text,
 .google-play__text {
@@ -479,6 +495,7 @@ a:hover::after {
 .socials__btn:hover {
     background-color: #E1D4C9;
     cursor: pointer;
+    transition: 500ms;
 }
 
 .socials__logo {
@@ -521,6 +538,7 @@ a:hover::after {
 
 .contacts__item a:hover::after {
     background-color: #B0907A;
+    transition: 500ms;
 }
 
 .contact-icon {

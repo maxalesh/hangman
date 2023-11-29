@@ -48,13 +48,26 @@
     line-height: 1.5;
 }
 
-.tabs__button.active {
-    background: #665F55;
+.tabs__button.active,
+.tabs__button:hover {
+    background-color: #665F55;
     border-color: #665F55;
+    animation: hover-tab 350ms;
 }
 
-.active span {
+.active span,
+.tabs__button:hover span {
     color: #E1D4C9;
+}
+
+@keyframes hover-tab {
+    from {
+        background-color: unset;
+    }
+    to {
+        background-color: #665F55;
+        border-color: #665F55;
+    }
 }
 
 .tabs {
@@ -76,6 +89,25 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    animation: showMenu 450ms ease-in-out;
+}
+
+@keyframes showMenu {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hideMenu {
+    from {
+        display: flex;
+    }
+    to {
+        display: none;
+    }
 }
 
 .menu__tea {

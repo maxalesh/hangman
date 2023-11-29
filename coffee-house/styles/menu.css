@@ -142,3 +142,21 @@
     font-weight: 400;
 }
 
+.card__image {
+    display: inline-block;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.card__image img {
+    transition: 400ms ease;
+    display: block;
+    border-radius: 20px;
+    object-fit: cover;
+    scale: 1.1;
+}
+
+.card__image img:hover {
+    transform: scale(0.91);
+}

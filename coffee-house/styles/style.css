@@ -350,11 +350,13 @@ a:hover::after {
 .gallery__photo-box {
     display: inline-block;
     overflow: hidden;
+
 }
 
 .gallery__photo {
     border-radius: 20px;
     object-fit: cover;
+    scale: 1.1;
 }
 
 .gallery__photo-box .gallery__photo {
@@ -363,7 +365,7 @@ a:hover::after {
 }
 
 .gallery__photo-box .gallery__photo:hover {
-    transform: scale(1.1);
+    transform: scale(0.91);
 }
 
 
@@ -374,18 +376,27 @@ a:hover::after {
     border-radius: 20px;
 }
 
-
-.gallery__photo-1,
-.gallery__photo-4 {
+.gallery__photo-box-1 {
     width: 660px;
     height: 590px;
 }
 
-.gallery__photo-2,
-.gallery__photo-3 {
+.gallery__photo-box-2 {
     width: 660px;
     height: 430px;
 }
+
+/*.gallery__photo-1,*/
+/*.gallery__photo-4 {*/
+/*    width: 660px;*/
+/*    height: 590px;*/
+/*}*/
+
+/*.gallery__photo-2,*/
+/*.gallery__photo-3 {*/
+/*    width: 660px;*/
+/*    height: 430px;*/
+/*}*/
 
 /*MOBILE APP*/
 .mobile-app {

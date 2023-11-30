@@ -154,7 +154,6 @@ a:hover::after {
 
 .offer__button {
     display: flex;
-    width: 200px;
     padding: 20px 78px;
     justify-content: center;
     align-items: center;
@@ -205,6 +204,7 @@ a:hover::after {
     width: 100%;
     left: 8px;
     transition: transform 200ms;
+    color: #403F3D;
 }
 
 

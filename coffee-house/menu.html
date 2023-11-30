@@ -85,7 +85,7 @@
 
         <div class="menu__container">
             <div class="menu__coffee">
-                <div class="menu__cup-card">
+                <div class="menu__cup-card cup-card__first">
                     <div class="card__image">
                         <img alt="coffee-1" src="images/menu/coffee-1.jpg">
                     </div>
@@ -185,7 +185,7 @@
             </div>
 
             <div class="menu__tea">
-                <div class="menu__cup-card">
+                <div class="menu__cup-card cup-card__first">
                     <div class="card__image">
                         <img alt="tea-1" src="images/menu/tea-1.png">
                     </div>
@@ -233,17 +233,10 @@
                         <span class="cup-card__cost">$5.50</span>
                     </div>
                 </div>
-
-
-                <div class="modal">
-                    <div class="modal__image-box">
-                        <img alt="image" class="modal__image" src="images/menu/">
-                    </div>
-                </div>
             </div>
 
             <div class="menu__dessert">
-                <div class="menu__cup-card">
+                <div class="menu__cup-card cup-card__first">
                     <div class="card__image">
                         <img alt="dessert-1" src="images/menu/dessert-1.png">
                     </div>
@@ -342,6 +335,73 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal">
+            <div class="modal__image-box">
+                <img alt="image" class="modal__image" src="images/menu/coffee-1.jpg">
+            </div>
+
+            <div class="modal__content">
+                <div class="modal__text">
+                    <h3 class="modal__title">Irish coffee</h3>
+                    <p class="modal__description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
+                </div>
+
+                <div class="modal__size size">
+                    <h4 class="size__title">Size</h4>
+                    <div class="size__btn-box">
+                        <button class="size__btn tabs__button">
+                            <span class="size__btn-icon button__icon">S</span>
+                            <span class="button__name">200 ml</span>
+                        </button>
+                        <button class="size__btn tabs__button"><span class="size__btn-icon button__icon">M</span>
+                            <span class="button__name">300 ml</span>
+                        </button>
+                        <button class="size__btn tabs__button"><span class="size__btn-icon button__icon">L</span>
+                            <span class="button__name">400 ml</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="modal__additives additives">
+                    <h4 class="additives__title">Additives</h4>
+                    <div class="additives__btn-box">
+                        <button class="additives__btn tabs__button">
+                            <span class="additives__btn-icon button__icon">1</span>
+                            <span class="button__name">Sugar</span>
+                        </button>
+                        <button class="additives__btn tabs__button">
+                            <span class="additives__btn-icon button__icon">2</span>
+                            <span class="button__name">Cinnamon</span>
+                        </button>
+                        <button class="additives__btn tabs__button">
+                            <span class="additives__btn-icon button__icon">3</span>
+                            <span class="button__name">Syrup</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal__cost cost">
+                    <span class="cost__title">Total:</span>
+                    <span class="cost__value">$7.00</span>
+                </div>
+
+                <div class="modal__note">
+                    <img alt="info-empty" class="note__icon" src="pictures/menu/info-empty.svg">
+                    <p class="note__text">The cost is not final. Download our mobile app to see the final price and
+                        place your order. Earn loyalty points and enjoy your favorite coffee with up to 20%
+                        discount.
+                    </p>
+                </div>
+
+                <div class="modal__close">
+                    <button class="close__btn">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay"></div>
     </main>
 
     <footer class="footer" id="contact">

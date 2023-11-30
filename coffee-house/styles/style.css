@@ -170,7 +170,7 @@ a:hover::after {
 
 
 .offer__button-icon {
-    display: none;
+    opacity: 0;
 }
 
 .offer__button:hover .offer__button-icon {
@@ -188,17 +188,23 @@ a:hover::after {
     }
 }
 
+.offer__button:hover .button__text {
+    transform: translateX(-8px);
+}
+
 .button__text {
     font-family: Inter, serif;
     font-size: 16px;
     line-height: 1.5;
-
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     margin: 0 auto;
     width: 100%;
+    left: 8px;
+    transition: transform 200ms;
 }
 
 

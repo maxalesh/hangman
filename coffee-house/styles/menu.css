@@ -39,14 +39,20 @@
     background: inherit;
     border: 1px solid #C1B6AD;
 
-}
-
-.button__name {
+    font-family: Inter;
     color: #403F3D;
     font-size: 16px;
     font-weight: 600;
     line-height: 1.5;
+
 }
+
+/*.button__name {*/
+/*    color: #403F3D;*/
+/*    font-size: 16px;*/
+/*    font-weight: 600;*/
+/*    line-height: 1.5;*/
+/*}*/
 
 .tabs__button.active,
 .tabs__button:hover {
@@ -55,8 +61,13 @@
     animation: hover-tab 350ms;
 }
 
+.tabs__button:hover .button__icon,
+.tabs__button.active .button__icon {
+    background-color: #E1D4C9;
+}
+
 .active span,
-.tabs__button:hover span {
+.tabs__button:hover .button__name {
     color: #E1D4C9;
 }
 
@@ -125,6 +136,10 @@
     border-radius: 40px;
 }
 
+.menu__cup-card:hover {
+    cursor: pointer;
+}
+
 .cup-card__info {
     display: flex;
     flex-direction: column;
@@ -165,9 +180,121 @@
 
 /*MODAL*/
 .modal {
-    /*display: none;*/
-    display: flex;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 504px;
+    transform: translate(-50%, -50%);
+    padding: 16px;
+
+
     align-items: flex-start;
     align-self: stretch;
+    z-index: 1000;
+    background-color: #E1D4C9;
+    border-radius: 40px;
+    gap: 20px;
 }
 
+.overlay {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 300vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: rgba(64, 63, 61, 0.8);
+    overflow: hidden;
+}
+
+.modal__image-box {
+    border-radius: 40px;
+}
+
+.modal__image {
+    border-radius: 40px;
+    width: 310px;
+    height: 310px;
+}
+
+.modal__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    flex: 1 1 0;
+    color: #403F3D;
+}
+
+.modal__title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.modal__description {
+    font-weight: 400;
+}
+
+.modal__cost {
+    font-size: 24px;
+    line-height: 1.25;
+}
+
+.note__text {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.close__btn {
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    color: #403F3D;
+}
+
+.additives__title,
+.size__title {
+    font-weight: 400;
+}
+
+.size,
+.additives {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.size__btn-box,
+.additives__btn-box {
+    display: flex;
+    gap: 8px;
+}
+
+.cost {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal__note {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.close__btn {
+    width: 100%;
+    padding: 10px 78px;
+    border-radius: 100px;
+    background-color: #E1D4C9;
+    border: 1px solid #403F3D;
+
+}

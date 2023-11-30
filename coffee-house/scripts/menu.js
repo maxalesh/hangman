@@ -5,10 +5,23 @@ const tabDessertBtn = document.querySelector('.tab-dessert');
 let tabInd = 0;
 const tabsBtn = [tabCoffeeBtn, tabTeaBtn, tabDessertBtn];
 const cupsCards = Array.from(document.querySelector('.menu__container').children);
+const closeButtons = Array.from(document.querySelectorAll('.close__btn'));
+const modalWindow = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const menuCardsFirst = Array.from(document.querySelectorAll('.cup-card__first'));
+const page = document.querySelector('html')
 
 tabCoffeeBtn.addEventListener('click', () => switchTabs(0));
 tabTeaBtn.addEventListener('click', () => switchTabs(1));
 tabDessertBtn.addEventListener('click', () => switchTabs(2));
+
+for (let closeButton of closeButtons) {
+    closeButton.addEventListener('click', () => closeModal())
+}
+
+for (let cardFirst of menuCardsFirst) {
+    cardFirst.addEventListener('click', () => openModal())
+}
 
 function showUnderline() {
     let currentUrl = window.location.href;
@@ -28,6 +41,20 @@ function switchTabs(cupInd = 0) {
             tabsBtn[ind].classList.remove('active');
         }
     })
+}
+
+function closeModal() {
+    modalWindow.style.display = 'none';
+    overlay.style.display = 'none';
+    page.style.overflow = 'inherit';
+}
+
+function openModal() {
+    window.scrollTo(0, 0)
+    modalWindow.style.display = 'flex';
+    overlay.style.display = 'table';
+    page.style.overflow = 'hidden';
+
 }
 
 showUnderline()

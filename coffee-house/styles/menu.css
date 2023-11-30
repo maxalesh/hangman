@@ -47,6 +47,10 @@
 
 }
 
+.tab-coffee:hover {
+    cursor: default;
+}
+
 /*.button__name {*/
 /*    color: #403F3D;*/
 /*    font-size: 16px;*/

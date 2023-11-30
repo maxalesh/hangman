@@ -157,10 +157,17 @@
     border-radius: 20px;
     object-fit: cover;
     scale: 1.1;
-    width: 340px;
-    height: 340px;
 }
 
 .card__image img:hover {
     transform: scale(0.91);
 }
+
+/*MODAL*/
+.modal {
+    /*display: none;*/
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+}
+

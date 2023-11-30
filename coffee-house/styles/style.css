@@ -577,9 +577,12 @@ a:hover::after {
     gap: 8px;
 }
 
+.contacts__item a::after {
+    background-color: #E1D4C9;
+}
 
 .contacts__item a:hover::after {
-    background-color: #B0907A;
+    background-color: #E1D4C9;
     transition: 500ms;
 }
 

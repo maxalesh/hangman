@@ -245,8 +245,22 @@ a:hover::after {
     }
 }
 
+@keyframes disable-hover-arrow {
+    from {
+        background-color: #665F55;
+        border-color: #665F55;
+    }
+    to {
+        background-color: unset;
+
+    }
+}
+
 .button-arrow:hover {
-    animation: hover-arrow 250ms;
+    /*animation: disable-hover-arrow 300ms;*/
+    /*animation: hover-arrow 350ms;*/
+    transition: background-color 500ms;
+    /*transition: border-color 300ms;*/
     background-color: #665F55;
     border-color: #665F55;
 }

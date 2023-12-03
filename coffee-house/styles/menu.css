@@ -171,7 +171,7 @@
     display: inline-block;
     overflow: hidden;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 40px;
     width: 310px;
     height: 310px;
 }

@@ -1,7 +1,9 @@
 const page = document.querySelector('.page');
 const main = document.querySelector('.main');
 const quiz = document.querySelector('.quiz');
+const underlinesList = document.createElement('ul');
 const hiddenLetters = document.createElement('ul');
+const hiddenWord = document.createElement('div');
 const hint = document.createElement('p');
 const hintSubTitle = document.createElement('span');
 const incorrectGuesses = document.createElement('p');
@@ -48,13 +50,26 @@ function getRandomSecretWord() {
   return secretWords[randomIndex];
 }
 
+const currentSecretWord = getRandomSecretWord();
+
+hiddenWord.className = 'quiz__hidden-word';
 hiddenLetters.className = 'quiz__hidden-letters hidden-letters';
+underlinesList.className = 'quiz__underline-list underline-list';
+
 for (let i = 0; i < 7; i += 1) {
-  const item = document.createElement('li');
-  item.className = 'hidden-letters__item';
-  hiddenLetters.append(item);
+  const secretLettersList = currentSecretWord.split('');
+  const itemUnderline = document.createElement('li');
+  const itemLetter = document.createElement('li');
+  itemLetter.textContent = secretLettersList[i];
+  itemUnderline.className = 'underline-list__item';
+  underlinesList.append(itemUnderline);
+  itemLetter.className = 'hidden-letters__item';
+  hiddenLetters.append(itemLetter);
 }
-quiz.append(hiddenLetters);
+
+hiddenWord.append(hiddenLetters);
+hiddenWord.append(underlinesList);
+quiz.append(hiddenWord);
 quizInfo.className = 'quiz__info';
 quiz.append(quizInfo);
 
@@ -62,7 +77,6 @@ hintSubTitle.textContent = 'Hint: ';
 hintSubTitle.className = 'quiz__subtitle';
 hint.className = 'quiz__hint';
 hint.append(hintSubTitle);
-const currentSecretWord = getRandomSecretWord();
 hint.append(hintsList[currentSecretWord]);
 
 incorrectGuesses.className = 'quiz__incorrect-guesses incorrect-guesses';
@@ -82,7 +96,34 @@ for (let i = 0; i < alphabet.length; i += 1) {
   const key = document.createElement('li');
   key.className = 'keys-list__item key';
   key.textContent = alphabet[i];
-  key.addEventListener('click', () => {});
+  key.addEventListener('', () => {});
 
   keysList.append(key);
 }
+
+document.addEventListener('keydown', event => {
+  const keyValue = event.code[event.code.length - 1];
+  let listIndLetter = [];
+  if (currentSecretWord.includes(keyValue) && keyValue !== keyValue.toLowerCase()) {
+    let pos = 0;
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      const foundPos = currentSecretWord.indexOf(keyValue, pos);
+      if (foundPos === -1) break;
+      listIndLetter.push(foundPos);
+      pos = foundPos + 1;
+    }
+    for (let i = 0; i < listIndLetter.length; i += 1) {
+      const currInd = listIndLetter[i];
+      document
+        .querySelector(`.hidden-letters__item:nth-child(${currInd + 1})`)
+        .classList.add('hidden-letters__item--visible');
+
+      document
+        .querySelector(`.underline-list__item:nth-child(${currInd + 1})`)
+        .classList.add('underline-list__item--hidden');
+    }
+    console.log(listIndLetter);
+  }
+});
+console.log('Secret word:', currentSecretWord);

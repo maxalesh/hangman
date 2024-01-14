@@ -2,51 +2,52 @@ $height-item-1: 500px;
 $width-item-5: 480px;
 
 .gallows {
+  position: relative;
   width: 40%;
   border-right: 1px solid black;
 }
 
 .gallows__inner {
-  width: $width-item-5;
-  height: $height-item-1;
+  text-align: center;
 }
 
-.gallows__item {
-  $width-item-2: 320px;
-  $height-item-3: 100px;
-  $height-item-4: 50px;
-
-  display: block;
-  width: 7px;
-  height: 7px;
-  background-color: black;
+.gallows__man-part {
   position: absolute;
-  border-radius: 5px;
+  visibility: hidden;
 
   &:nth-child(1) {
-    transform: translateX(70px);
-    height: $height-item-1;
+    top: 125px;
+    right: 91px;
   }
-
   &:nth-child(2) {
-    transform: translateX(70px);
-    width: $width-item-2;
+    top: 225px;
+    right: 138px;
   }
-
   &:nth-child(3) {
-    height: $height-item-3;
-    transform: rotate(45deg) translate(65px, -84px)
+    top: 225px;
+    right: 140px;
   }
-
   &:nth-child(4) {
-    transform: translateX($width-item-2 + 70 - 5);
-    height: $height-item-4;
+    top: 225px;
+    right: 73px;
+  }
+  &:nth-child(5) {
+    top: 352px;
+    right: 138px;
+  }
+  &:nth-child(6) {
+    top: 352px;
+    right: 74px;
   }
 
-  &:nth-child(5) {
-    transform: translate(0px, $height-item-1 - 5);
-    width: $width-item-5;
+  &--visible {
+    visibility: visible;
   }
+
+}
+
+.quiz__hangman-img {
+  width: 300px;
 }
 
 .gallows__title {

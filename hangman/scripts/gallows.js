@@ -2,23 +2,37 @@ const page = document.querySelector('.page');
 const main = document.createElement('main');
 const gallowsInner = document.createElement('div');
 const gallows = document.createElement('div');
-// TODO: use DRY
-const rectangle1 = document.createElement('span');
-const rectangle2 = document.createElement('span');
-const rectangle3 = document.createElement('span');
-const rectangle4 = document.createElement('span');
-const rectangle5 = document.createElement('span');
-const gallowsItems = [rectangle1, rectangle2, rectangle3, rectangle4, rectangle5];
+const gallowsImg = document.createElement('img');
 const gallowsTitle = document.createElement('h1');
 const quiz = document.createElement('div');
+const man = document.createElement('div');
 
+const headMan = document.createElement('img');
+headMan.setAttribute('src', 'pictures/head.svg');
+const bodyMan = document.createElement('img');
+bodyMan.setAttribute('src', 'pictures/body.svg');
+const leftHand = document.createElement('img');
+leftHand.setAttribute('src', 'pictures/hand-left.svg');
+const rightHand = document.createElement('img');
+rightHand.setAttribute('src', 'pictures/hand-right.svg');
+const leftLeg = document.createElement('img');
+leftLeg.setAttribute('src', 'pictures/leg-left.svg');
+const rightLeg = document.createElement('img');
+rightLeg.setAttribute('src', 'pictures/leg-right.svg');
+const manParts = [headMan, bodyMan, leftHand, rightHand, leftLeg, rightLeg];
+
+gallowsInner.append(gallowsImg);
+gallowsImg.setAttribute('src', 'pictures/gallows.svg');
+gallowsImg.className = 'quiz__hangman-img';
 main.className = 'main';
 page.prepend(main);
+man.className = 'gallows__man man';
+gallowsInner.append(man);
 
-gallowsItems.forEach(item => {
+manParts.forEach(part => {
   // eslint-disable-next-line no-param-reassign
-  item.className = 'gallows__item';
-  gallowsInner.append(item);
+  part.className = 'gallows__man-part man-part';
+  man.append(part);
 });
 
 gallows.className = 'gallows';

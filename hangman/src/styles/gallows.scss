@@ -2,8 +2,10 @@ $height-item-1: 500px;
 $width-item-5: 480px;
 
 .gallows {
-
+  width: 40%;
+  border-right: 1px solid black;
 }
+
 .gallows__inner {
   width: $width-item-5;
   height: $height-item-1;
@@ -15,31 +17,34 @@ $width-item-5: 480px;
   $height-item-4: 50px;
 
   display: block;
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
   background-color: black;
   position: absolute;
+  border-radius: 5px;
 
   &:nth-child(1) {
+    transform: translateX(70px);
     height: $height-item-1;
   }
 
   &:nth-child(2) {
+    transform: translateX(70px);
     width: $width-item-2;
   }
 
   &:nth-child(3) {
     height: $height-item-3;
-    transform: rotate(45deg) translate(17px, -33px);
+    transform: rotate(45deg) translate(65px, -84px)
   }
 
   &:nth-child(4) {
-    transform: translateX($width-item-2);
+    transform: translateX($width-item-2 + 70 - 5);
     height: $height-item-4;
   }
 
   &:nth-child(5) {
-    transform: translate(-70px, $height-item-1);
+    transform: translate(0px, $height-item-1 - 5);
     width: $width-item-5;
   }
 }
@@ -47,6 +52,7 @@ $width-item-5: 480px;
 .gallows__title {
   font-family: Arial, sans-serif;
   font-weight: bold;
-  font-size: 52px;
+  font-size: 42px;
+  text-align: center;
 }
 

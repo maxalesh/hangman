@@ -1,0 +1,32 @@
+.quiz {
+  display: flex;
+  width: 60%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden-letters {
+  display: flex;
+  gap: 20px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.hidden-letters__item {
+  width: 40px;
+  height: 5px;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.quiz__hint {
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+}
+
+.quiz__subtitle {
+  font-weight: 400;
+}

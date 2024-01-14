@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 40px;
 }
 
 .hidden-letters {
@@ -21,12 +22,47 @@
   border-radius: 5px;
 }
 
-.quiz__hint {
+.quiz__hint,
+.quiz__incorrect-guesses {
   font-size: 24px;
   font-family: Arial, sans-serif;
   font-weight: 600;
 }
 
-.quiz__subtitle {
+
+.quiz__subtitle,
+.quiz__incorrect-guesses {
   font-weight: 400;
+}
+
+.incorrect-guesses__counter {
+  font-weight: 600;
+  color: #e51616;
+}
+
+.quiz__info {
+  text-align: center;
+}
+
+.keyboard__keys-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.keys-list__item {
+  border: 1px solid #555eb5;
+  color: white;
+  background-color: #555eb5;
+  width: 60px;
+  line-height: 50px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.quiz__keyboard {
+  padding: 0 50px;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
 }

@@ -89,6 +89,11 @@
   line-height: 50px;
   border-radius: 10px;
   text-align: center;
+
+  &:hover,
+  &:hover .key-list__btn {
+    background-color: #272b57;
+  }
 }
 
 .quiz__keyboard {

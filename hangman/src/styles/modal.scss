@@ -1,7 +1,7 @@
 .modal {
   display: none;
   position: absolute;
-  width: 1000px;
+  width: 700px;
   height: 500px;
   background-color: white;
   top: 50%;
@@ -11,9 +11,13 @@
   z-index: 99;
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  font-family: Arial, sans-serif;
 
   &--show {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -35,5 +39,29 @@
 
   &--visible {
     opacity: 0.6;
+  }
+}
+
+.modal__title {
+  font-size: 48px;
+  margin: 0;
+}
+
+.modal__secret-word {
+  font-size: 32px;
+}
+
+.modal__btn {
+  font-size: 28px;
+  margin-top: 70px;
+  padding: 10px 50px;
+  border-radius: 10px;
+  background-color: #555eb5;
+  color: white;
+  outline: none;
+  border: none;
+
+  &:hover {
+    background-color: #272b57;
   }
 }

@@ -1,5 +1,6 @@
 import { showModal } from './modal.js';
 
+export { restartGame };
 const page = document.querySelector('.page');
 const main = document.querySelector('.main');
 const quiz = document.querySelector('.quiz');
@@ -13,6 +14,7 @@ const incorrectGuessesCounter = document.createElement('span');
 const quizInfo = document.createElement('div');
 const keyboard = document.createElement('div');
 const keysList = document.createElement('ul');
+let listIndLetter = new Set();
 
 let incorrectGuesessCount = 0;
 const secretWords = [
@@ -53,26 +55,32 @@ function getRandomSecretWord() {
   return secretWords[randomIndex];
 }
 
-const currentSecretWord = getRandomSecretWord();
+let currentSecretWord = getRandomSecretWord();
 
 hiddenWord.className = 'quiz__hidden-word';
 hiddenLetters.className = 'quiz__hidden-letters hidden-letters';
 underlinesList.className = 'quiz__underline-list underline-list';
+quiz.append(hiddenWord);
 
-for (let i = 0; i < 7; i += 1) {
-  const secretLettersList = currentSecretWord.split('');
-  const itemUnderline = document.createElement('li');
-  const itemLetter = document.createElement('li');
-  itemLetter.textContent = secretLettersList[i];
-  itemUnderline.className = 'underline-list__item';
-  underlinesList.append(itemUnderline);
-  itemLetter.className = 'hidden-letters__item';
-  hiddenLetters.append(itemLetter);
+// TODO: wrap of func
+function setHiddenWord() {
+  for (let i = 0; i < 7; i += 1) {
+    const secretLettersList = currentSecretWord.split('');
+    const itemUnderline = document.createElement('li');
+    const itemLetter = document.createElement('li');
+    itemLetter.textContent = secretLettersList[i];
+    itemUnderline.className = 'underline-list__item';
+    underlinesList.append(itemUnderline);
+    itemLetter.className = 'hidden-letters__item';
+    hiddenLetters.append(itemLetter);
+  }
+
+  hiddenWord.append(hiddenLetters);
+  hiddenWord.append(underlinesList);
 }
 
-hiddenWord.append(hiddenLetters);
-hiddenWord.append(underlinesList);
-quiz.append(hiddenWord);
+setHiddenWord();
+
 quizInfo.className = 'quiz__info';
 quiz.append(quizInfo);
 
@@ -100,20 +108,52 @@ for (let i = 0; i < alphabet.length; i += 1) {
   key.className = 'keys-list__item key';
   key.textContent = alphabet[i];
   key.addEventListener('', () => {});
-
   keysList.append(key);
 }
 
-function restartGame() {}
+function hiddenManParts() {
+  const visibleManParts = document.querySelectorAll('.man-part');
+  for (let visiblePart of visibleManParts) {
+    visiblePart.classList.remove('gallows__man-part--visible');
+  }
+}
 
-let listIndLetter = new Set();
+function resetHiddenWord() {
+  const visibleHiddenLetters = document.querySelectorAll('.hidden-letters__item--visible');
+  for (let visibleLetter of visibleHiddenLetters) {
+    visibleLetter.classList.remove('hidden-letters__item--visible');
+  }
+  const hiddenUnderlines = document.querySelectorAll('.underline-list__item--hidden');
+  for (let hiddenUnderline of hiddenUnderlines) {
+    hiddenUnderline.classList.remove('underline-list__item--hidden');
+  }
+  hiddenLetters.innerHTML = '';
+  underlinesList.innerHTML = '';
+  hiddenWord.innerHTML = '';
+  setHiddenWord();
+}
+
+function restartGame() {
+  currentSecretWord = getRandomSecretWord();
+  incorrectGuesessCount = 0;
+  listIndLetter.clear();
+  const modal = document.querySelector('.modal');
+  modal.innerHTML = '';
+  hint.textContent = hintsList[currentSecretWord];
+  incorrectGuessesCounter.textContent = `${incorrectGuesessCount} / 6`;
+  hiddenManParts();
+  resetHiddenWord();
+  console.log('New secret word: ', currentSecretWord);
+}
+
 document.addEventListener('keydown', event => {
   const keyValue = event.code[event.code.length - 1];
   // let listIndLetter = [];
   if (
     currentSecretWord.includes(keyValue) &&
     keyValue !== keyValue.toLowerCase() &&
-    incorrectGuesessCount < 6
+    incorrectGuesessCount < 6 &&
+    listIndLetter.size < 7
   ) {
     let pos = 0;
     // eslint-disable-next-line no-constant-condition
@@ -140,7 +180,8 @@ document.addEventListener('keydown', event => {
   } else if (
     !currentSecretWord.includes(keyValue) &&
     keyValue !== keyValue.toLowerCase() &&
-    incorrectGuesessCount < 6
+    incorrectGuesessCount < 6 &&
+    listIndLetter.size < 7
   ) {
     document
       .querySelector(`.man-part:nth-child(${incorrectGuesessCount + 1})`)

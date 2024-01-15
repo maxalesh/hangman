@@ -1,5 +1,6 @@
-export { showModal };
+import { restartGame } from './quiz.js';
 
+export { showModal };
 const page = document.querySelector('.page');
 const modal = document.createElement('div');
 const overlay = document.createElement('div');
@@ -21,6 +22,7 @@ function showModal(message, secretWord) {
   playAgainBtn.addEventListener('click', () => {
     modal.classList.remove('modal--show');
     overlay.classList.remove('overlay--visible');
+    restartGame();
   });
 
   modal.append(resultGame);

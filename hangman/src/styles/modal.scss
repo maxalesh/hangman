@@ -1,0 +1,39 @@
+.modal {
+  display: none;
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+  &--show {
+    display: block;
+  }
+}
+
+.overlay {
+  position: fixed;
+  border: none;
+  display: block;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 98;
+  opacity: 0;
+  //transition: opacity 0.15s ease;
+  background-color: black;
+
+  &--visible {
+    opacity: 0.6;
+  }
+}

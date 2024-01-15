@@ -1,3 +1,5 @@
+import { showModal } from './modal.js';
+
 const page = document.querySelector('.page');
 const main = document.querySelector('.main');
 const quiz = document.querySelector('.quiz');
@@ -11,6 +13,7 @@ const incorrectGuessesCounter = document.createElement('span');
 const quizInfo = document.createElement('div');
 const keyboard = document.createElement('div');
 const keysList = document.createElement('ul');
+
 let incorrectGuesessCount = 0;
 const secretWords = [
   'JAYWALK',
@@ -123,7 +126,14 @@ document.addEventListener('keydown', event => {
         .querySelector(`.underline-list__item:nth-child(${currInd + 1})`)
         .classList.add('underline-list__item--hidden');
     }
-    console.log(listIndLetter);
+  } else if (!currentSecretWord.includes(keyValue) && keyValue !== keyValue.toLowerCase()) {
+    document
+      .querySelector(`.man-part:nth-child(${incorrectGuesessCount + 1})`)
+      .classList.add('gallows__man-part--visible');
+    incorrectGuesessCount += 1;
+    incorrectGuessesCounter.textContent = `${incorrectGuesessCount} / 6`;
+    console.log('Нет такой буквы!');
   }
 });
+showModal('You WIN!', currentSecretWord);
 console.log('Secret word:', currentSecretWord);

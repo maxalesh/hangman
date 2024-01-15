@@ -171,15 +171,17 @@ for (const key of document.querySelectorAll('.key')) {
       listIndLetter.size < 7
     ) {
       // TODO: apply DRY
+      if (!key.classList.contains('key--disabled')) {
+        document
+          .querySelector(`.man-part:nth-child(${incorrectGuessesCount + 1})`)
+          .classList.add('gallows__man-part--visible');
+        incorrectGuessesCount += 1;
+      }
       const btnKey = key.children[0];
       btnKey.setAttribute('disabled', 'disabled');
       key.classList.add('key--disabled');
 
       // TODO: wrap of func
-      document
-        .querySelector(`.man-part:nth-child(${incorrectGuessesCount + 1})`)
-        .classList.add('gallows__man-part--visible');
-      incorrectGuessesCount += 1;
       incorrectGuessesCounter.textContent = `${incorrectGuessesCount} / 6`;
       if (incorrectGuessesCount === 6) {
         showModal('Yow lose!', currentSecretWord);
@@ -240,6 +242,8 @@ function restartGame() {
 
 document.addEventListener('keydown', event => {
   const keyValue = event.code[event.code.length - 1];
+  const keyNumb = alphabet.indexOf(keyValue);
+  const pressKey = document.querySelector(`.key:nth-child(${keyNumb + 1})`);
   // let listIndLetter = [];
   if (
     // TODO: put in variable
@@ -249,8 +253,6 @@ document.addEventListener('keydown', event => {
     listIndLetter.size < 7
   ) {
     // TODO: apply DRY
-    const keyNumb = alphabet.indexOf(keyValue);
-    const pressKey = document.querySelector(`.key:nth-child(${keyNumb + 1})`);
     const pressBtnKey = pressKey.children[0];
     pressBtnKey.setAttribute('disabled', 'disabled');
     pressKey.classList.add('key--disabled');
@@ -268,22 +270,22 @@ document.addEventListener('keydown', event => {
     listIndLetter.size < 7
   ) {
     // TODO: apply DRY
-    const keyNumb = alphabet.indexOf(keyValue);
-    const pressKey = document.querySelector(`.key:nth-child(${keyNumb + 1})`);
+    if (!pressKey.classList.contains('key--disabled')) {
+      document
+        .querySelector(`.man-part:nth-child(${incorrectGuessesCount + 1})`)
+        .classList.add('gallows__man-part--visible');
+      incorrectGuessesCount += 1;
+    }
     const pressBtnKey = pressKey.children[0];
     pressBtnKey.setAttribute('disabled', 'disabled');
     pressKey.classList.add('key--disabled');
 
     // TODO: wrap of func
-    document
-      .querySelector(`.man-part:nth-child(${incorrectGuessesCount + 1})`)
-      .classList.add('gallows__man-part--visible');
-    incorrectGuessesCount += 1;
+
     incorrectGuessesCounter.textContent = `${incorrectGuessesCount} / 6`;
     if (incorrectGuessesCount === 6) {
       showModal('Yow lose!', currentSecretWord);
     }
-    console.log('There is no such letter!');
   }
 });
 

@@ -1,8 +1,8 @@
+// eslint-disable-next-line import/no-cycle,import/extensions
 import { showModal } from './modal.js';
 
+// eslint-disable-next-line import/prefer-default-export,no-use-before-define
 export { restartGame };
-const page = document.querySelector('.page');
-const main = document.querySelector('.main');
 const quiz = document.querySelector('.quiz');
 const underlinesList = document.createElement('ul');
 const hiddenLetters = document.createElement('ul');
@@ -14,9 +14,9 @@ const incorrectGuessesCounter = document.createElement('span');
 const quizInfo = document.createElement('div');
 const keyboard = document.createElement('div');
 const keysList = document.createElement('ul');
-let listIndLetter = new Set();
+const listIndLetter = new Set();
 
-let incorrectGuesessCount = 0;
+let incorrectGuessesCount = 0;
 const secretWords = [
   'JAYWALK',
   'CHEETAH',
@@ -62,7 +62,6 @@ hiddenLetters.className = 'quiz__hidden-letters hidden-letters';
 underlinesList.className = 'quiz__underline-list underline-list';
 quiz.append(hiddenWord);
 
-// TODO: wrap of func
 function setHiddenWord() {
   for (let i = 0; i < 7; i += 1) {
     const secretLettersList = currentSecretWord.split('');
@@ -84,47 +83,128 @@ setHiddenWord();
 quizInfo.className = 'quiz__info';
 quiz.append(quizInfo);
 
+// TODO: wrap of func
 hintSubTitle.textContent = 'Hint: ';
 hintSubTitle.className = 'quiz__subtitle';
 hint.className = 'quiz__hint';
 hint.append(hintSubTitle);
 hint.append(hintsList[currentSecretWord]);
 
+// TODO: wrap of func
 incorrectGuesses.className = 'quiz__incorrect-guesses incorrect-guesses';
 incorrectGuesses.textContent = 'Incorrect guesses: ';
 incorrectGuessesCounter.className = 'incorrect-guesses__counter';
-incorrectGuessesCounter.textContent = `${incorrectGuesessCount} / 6`;
+incorrectGuessesCounter.textContent = `${incorrectGuessesCount} / 6`;
 incorrectGuesses.append(incorrectGuessesCounter);
 quizInfo.append(hint);
 quizInfo.append(incorrectGuesses);
 
+// TODO: wrap of func
 keyboard.className = 'quiz__keyboard keyboard';
 keysList.className = 'keyboard__keys-list keys-list';
 keyboard.append(keysList);
 quiz.append(keyboard);
 
+function showHiddenLetters() {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const currInd of listIndLetter) {
+    document
+      .querySelector(`.hidden-letters__item:nth-child(${currInd + 1})`)
+      .classList.add('hidden-letters__item--visible');
+
+    document
+      .querySelector(`.underline-list__item:nth-child(${currInd + 1})`)
+      .classList.add('underline-list__item--hidden');
+  }
+}
+
+function saveIndexesOfHiddenLetters(letter) {
+  let pos = 0;
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    const foundPos = currentSecretWord.indexOf(letter, pos);
+    if (foundPos === -1) break;
+    listIndLetter.add(foundPos);
+    pos = foundPos + 1;
+  }
+}
+
 for (let i = 0; i < alphabet.length; i += 1) {
   const key = document.createElement('li');
+  const button = document.createElement('button');
+  button.className = 'key-list__btn';
   key.className = 'keys-list__item key';
-  key.textContent = alphabet[i];
-  key.addEventListener('', () => {});
+  button.textContent = alphabet[i];
+  key.append(button);
+  // TODO: ?
+  // key.addEventListener('', () => {});
   keysList.append(key);
+}
+
+// function disabledKey() {
+//
+// }
+
+// Добавляю прослушивание на виртуальную клавиатуру
+// eslint-disable-next-line no-restricted-syntax
+for (const key of document.querySelectorAll('.key')) {
+  // eslint-disable-next-line no-loop-func
+  key.addEventListener('click', () => {
+    if (
+      currentSecretWord.includes(key.textContent) &&
+      incorrectGuessesCount < 6 &&
+      listIndLetter.size < 7
+    ) {
+      // TODO: apply DRY
+      const btnKey = key.children[0];
+      btnKey.setAttribute('disabled', 'disabled');
+      key.classList.add('key--disabled');
+      saveIndexesOfHiddenLetters(key.textContent);
+      showHiddenLetters();
+
+      if (listIndLetter.size === currentSecretWord.length) {
+        showModal('You win!', currentSecretWord);
+      }
+    } else if (
+      !currentSecretWord.includes(key.textContent) &&
+      incorrectGuessesCount < 6 &&
+      listIndLetter.size < 7
+    ) {
+      // TODO: apply DRY
+      const btnKey = key.children[0];
+      btnKey.setAttribute('disabled', 'disabled');
+      key.classList.add('key--disabled');
+
+      // TODO: wrap of func
+      document
+        .querySelector(`.man-part:nth-child(${incorrectGuessesCount + 1})`)
+        .classList.add('gallows__man-part--visible');
+      incorrectGuessesCount += 1;
+      incorrectGuessesCounter.textContent = `${incorrectGuessesCount} / 6`;
+      if (incorrectGuessesCount === 6) {
+        showModal('Yow lose!', currentSecretWord);
+      }
+    }
+  });
 }
 
 function hiddenManParts() {
   const visibleManParts = document.querySelectorAll('.man-part');
-  for (let visiblePart of visibleManParts) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const visiblePart of visibleManParts) {
     visiblePart.classList.remove('gallows__man-part--visible');
   }
 }
 
 function resetHiddenWord() {
   const visibleHiddenLetters = document.querySelectorAll('.hidden-letters__item--visible');
-  for (let visibleLetter of visibleHiddenLetters) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const visibleLetter of visibleHiddenLetters) {
     visibleLetter.classList.remove('hidden-letters__item--visible');
   }
   const hiddenUnderlines = document.querySelectorAll('.underline-list__item--hidden');
-  for (let hiddenUnderline of hiddenUnderlines) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const hiddenUnderline of hiddenUnderlines) {
     hiddenUnderline.classList.remove('underline-list__item--hidden');
   }
   hiddenLetters.innerHTML = '';
@@ -133,16 +213,28 @@ function resetHiddenWord() {
   setHiddenWord();
 }
 
+function resetKeyboard() {
+  const disableKeys = document.querySelectorAll('.key--disabled');
+  const disableButtons = document.querySelectorAll('button:disabled');
+  for (const key of disableKeys) {
+    key.classList.remove('key--disabled');
+  }
+  for (const btn of disableButtons) {
+    btn.removeAttribute('disabled');
+  }
+}
+
 function restartGame() {
   currentSecretWord = getRandomSecretWord();
-  incorrectGuesessCount = 0;
+  incorrectGuessesCount = 0;
   listIndLetter.clear();
   const modal = document.querySelector('.modal');
   modal.innerHTML = '';
   hint.textContent = hintsList[currentSecretWord];
-  incorrectGuessesCounter.textContent = `${incorrectGuesessCount} / 6`;
+  incorrectGuessesCounter.textContent = `${incorrectGuessesCount} / 6`;
   hiddenManParts();
   resetHiddenWord();
+  resetKeyboard();
   console.log('New secret word: ', currentSecretWord);
 }
 
@@ -150,48 +242,48 @@ document.addEventListener('keydown', event => {
   const keyValue = event.code[event.code.length - 1];
   // let listIndLetter = [];
   if (
+    // TODO: put in variable
     currentSecretWord.includes(keyValue) &&
     keyValue !== keyValue.toLowerCase() &&
-    incorrectGuesessCount < 6 &&
+    incorrectGuessesCount < 6 &&
     listIndLetter.size < 7
   ) {
-    let pos = 0;
-    // eslint-disable-next-line no-constant-condition
-    while (true) {
-      const foundPos = currentSecretWord.indexOf(keyValue, pos);
-      if (foundPos === -1) break;
-      listIndLetter.add(foundPos);
-      pos = foundPos + 1;
-    }
+    // TODO: apply DRY
+    const keyNumb = alphabet.indexOf(keyValue);
+    const pressKey = document.querySelector(`.key:nth-child(${keyNumb + 1})`);
+    const pressBtnKey = pressKey.children[0];
+    pressBtnKey.setAttribute('disabled', 'disabled');
+    pressKey.classList.add('key--disabled');
+    saveIndexesOfHiddenLetters(keyValue);
+    showHiddenLetters();
 
-    // TODO: wrap of function
-    for (let currInd of listIndLetter) {
-      document
-        .querySelector(`.hidden-letters__item:nth-child(${currInd + 1})`)
-        .classList.add('hidden-letters__item--visible');
-
-      document
-        .querySelector(`.underline-list__item:nth-child(${currInd + 1})`)
-        .classList.add('underline-list__item--hidden');
-    }
     if (listIndLetter.size === currentSecretWord.length) {
       showModal('You win!', currentSecretWord);
     }
   } else if (
+    // TODO: put in variable
     !currentSecretWord.includes(keyValue) &&
     keyValue !== keyValue.toLowerCase() &&
-    incorrectGuesessCount < 6 &&
+    incorrectGuessesCount < 6 &&
     listIndLetter.size < 7
   ) {
+    // TODO: apply DRY
+    const keyNumb = alphabet.indexOf(keyValue);
+    const pressKey = document.querySelector(`.key:nth-child(${keyNumb + 1})`);
+    const pressBtnKey = pressKey.children[0];
+    pressBtnKey.setAttribute('disabled', 'disabled');
+    pressKey.classList.add('key--disabled');
+
+    // TODO: wrap of func
     document
-      .querySelector(`.man-part:nth-child(${incorrectGuesessCount + 1})`)
+      .querySelector(`.man-part:nth-child(${incorrectGuessesCount + 1})`)
       .classList.add('gallows__man-part--visible');
-    incorrectGuesessCount += 1;
-    incorrectGuessesCounter.textContent = `${incorrectGuesessCount} / 6`;
-    if (incorrectGuesessCount === 6) {
+    incorrectGuessesCount += 1;
+    incorrectGuessesCounter.textContent = `${incorrectGuessesCount} / 6`;
+    if (incorrectGuessesCount === 6) {
       showModal('Yow lose!', currentSecretWord);
     }
-    console.log('Нет такой буквы!');
+    console.log('There is no such letter!');
   }
 });
 

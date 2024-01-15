@@ -96,3 +96,29 @@
   font-family: Arial, sans-serif;
   font-size: 24px;
 }
+
+.key {
+  cursor: pointer;
+  z-index: 10;
+
+  &--disabled {
+    cursor: default;
+    background-color: #3d4481;
+  }
+}
+
+.key-list__btn {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.key-list__btn:disabled {
+  cursor: default;
+  background-color: #3d4481;
+  color: white;
+  border-color: #555eb5;
+}

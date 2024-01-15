@@ -104,20 +104,28 @@ for (let i = 0; i < alphabet.length; i += 1) {
   keysList.append(key);
 }
 
+function restartGame() {}
+
+let listIndLetter = new Set();
 document.addEventListener('keydown', event => {
   const keyValue = event.code[event.code.length - 1];
-  let listIndLetter = [];
-  if (currentSecretWord.includes(keyValue) && keyValue !== keyValue.toLowerCase()) {
+  // let listIndLetter = [];
+  if (
+    currentSecretWord.includes(keyValue) &&
+    keyValue !== keyValue.toLowerCase() &&
+    incorrectGuesessCount < 6
+  ) {
     let pos = 0;
     // eslint-disable-next-line no-constant-condition
     while (true) {
       const foundPos = currentSecretWord.indexOf(keyValue, pos);
       if (foundPos === -1) break;
-      listIndLetter.push(foundPos);
+      listIndLetter.add(foundPos);
       pos = foundPos + 1;
     }
-    for (let i = 0; i < listIndLetter.length; i += 1) {
-      const currInd = listIndLetter[i];
+
+    // TODO: wrap of function
+    for (let currInd of listIndLetter) {
       document
         .querySelector(`.hidden-letters__item:nth-child(${currInd + 1})`)
         .classList.add('hidden-letters__item--visible');
@@ -126,14 +134,24 @@ document.addEventListener('keydown', event => {
         .querySelector(`.underline-list__item:nth-child(${currInd + 1})`)
         .classList.add('underline-list__item--hidden');
     }
-  } else if (!currentSecretWord.includes(keyValue) && keyValue !== keyValue.toLowerCase()) {
+    if (listIndLetter.size === currentSecretWord.length) {
+      showModal('You win!', currentSecretWord);
+    }
+  } else if (
+    !currentSecretWord.includes(keyValue) &&
+    keyValue !== keyValue.toLowerCase() &&
+    incorrectGuesessCount < 6
+  ) {
     document
       .querySelector(`.man-part:nth-child(${incorrectGuesessCount + 1})`)
       .classList.add('gallows__man-part--visible');
     incorrectGuesessCount += 1;
     incorrectGuessesCounter.textContent = `${incorrectGuesessCount} / 6`;
+    if (incorrectGuesessCount === 6) {
+      showModal('Yow lose!', currentSecretWord);
+    }
     console.log('Нет такой буквы!');
   }
 });
-showModal('You WIN!', currentSecretWord);
+
 console.log('Secret word:', currentSecretWord);

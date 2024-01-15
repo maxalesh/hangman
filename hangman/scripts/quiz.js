@@ -227,7 +227,11 @@ function resetKeyboard() {
 }
 
 function restartGame() {
-  currentSecretWord = getRandomSecretWord();
+  let nextSecretWord = getRandomSecretWord();
+  while (nextSecretWord === currentSecretWord) {
+    nextSecretWord = getRandomSecretWord();
+  }
+  currentSecretWord = nextSecretWord;
   incorrectGuessesCount = 0;
   listIndLetter.clear();
   const modal = document.querySelector('.modal');
